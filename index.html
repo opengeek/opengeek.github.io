@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="opengeek.github.io : GitHub Pages Site for opengeek" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>opengeek.github.io</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/opengeek">View on GitHub</a>
+
+          <h1 id="project_title">opengeek.github.io</h1>
+          <h2 id="project_tagline">GitHub Pages Site for opengeek</h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>opengeek</h3>
+
+<p>This is my new GitHub Pages Site...</p>
+
+<h2>About</h2>
+
+<p>I'm the Chief Architect of the MODX Content Management System (<a href="https://github.com/modxcms" class="user-mention">@modxcms</a>) and you can contact me via GitHub (<a href="https://github.com/opengeek" class="user-mention">@opengeek</a>).</p>
+
+<p>I like code:</p>
+
+<p>Below are some example usages of the <strong>getCache</strong> Snippet. Note that you always want to call the getCache snippet uncached, i.e. with the ! token after the opening tags...</p>
+
+<h2>Basic Example</h2>
+
+<p>The simplest example simply caches the output of the Element it is processing, using the default properties. Because the default <code>cacheElementKey</code> is constructed dynamically by creating a hash of the current Resource id, the properties passed to the Element, and any parameters sent in the REQUEST, any requests with a unique parameter in the URL or dynamic property values passed to the Element will cache results separately. It also uses the <code>resource</code> cache partition by default, which is cleared anytime a Resource or Element is edited in the MODX manager, or Site --&gt; Clear Cache is called:</p>
+
+<div class="highlight"><pre>    [[!getCache? <span class="err">&amp;</span>element=`getResources` <span class="err">&amp;</span>parents=`0` <span class="err">&amp;</span>depth=`2`]]
+</pre></div>
+
+<h2>Custom Cache Expiration</h2>
+
+<p>This example is the same as the Basic Example, but expires the cache item after it has lived in the cache for 1440 seconds:</p>
+
+<div class="highlight"><pre>    [[!getCache? <span class="err">&amp;</span>element=`getResources` <span class="err">&amp;</span>cacheExpires=`1440` <span class="err">&amp;</span>parents=`0` <span class="err">&amp;</span>depth=`2`]]
+</pre></div>
+
+<h2>Sharing Cached Elements Across Resources</h2>
+
+<p>By providing a <code>cacheElementKey</code>, you can specify the key used to store an item in the cache. This allows you to share the cache across Resources, so that the first Resource to be called will cache the output for all other getCache calls using that <code>cacheElementKey</code> to share:</p>
+
+<div class="highlight"><pre>    [[!getCache? <span class="err">&amp;</span>element=`getResources` <span class="err">&amp;</span>cacheElementKey=`shared_navigation` <span class="err">&amp;</span>parents=`0` <span class="err">&amp;</span>depth=`2`]]
+</pre></div>
+
+<h2>Custom Cache Partitions</h2>
+
+<p>By providing a <code>cacheKey</code>, you can specify a custom cache partition to store the cached Element in. This allows the cached items to survive MODX cache refreshes that occur during publishing activity:</p>
+
+<div class="highlight"><pre>    [[!getCache? <span class="err">&amp;</span>element=`getResources` <span class="err">&amp;</span>cacheKey=`global_cache` <span class="err">&amp;</span>parents=`0` <span class="err">&amp;</span>depth=`2`]]
+</pre></div>
+
+<p><strong>NOTE</strong>: The caveat with using a custom partition is that it must be expired using the <code>cacheExpires</code> property (or configuring the partition with an expires option), or manually. getCache provides a processor for refreshing custom cache partitions using PHP API calls or using JavaScript via the provided connector.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
